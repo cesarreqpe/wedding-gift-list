@@ -159,35 +159,4 @@
   window.onload = checkGiftStatus;
 </script>
 
-  // 🔴 PASTE YOUR FIREBASE CONFIG HERE
-  const firebaseConfig = {
-    apiKey: "AIzaSyAOFz8P6Qp1kD1K_UgtR6p_ld2QySU7oAw",
-    authDomain: "wedding-gift-list-d6ca1.firebaseapp.com",
-    projectId: "wedding-gift-list-d6ca1",
-    storageBucket: "wedding-gift-list-d6ca1.firebasestorage.app",
-    messagingSenderId: "389852637419",
-    appId: "1:389852637419:web:964120380a22406489f6ae"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-
-  async function claimGift(id, button) {
-    const ref = doc(db, "gifts", id);
-    const snap = await getDoc(ref);
-
-    if (snap.exists()) {
-      alert("This gift has already been selected 💍");
-      return;
-    }
-
-    await setDoc(ref, { claimed: true });
-    button.innerText = "Already gifted 💍";
-    button.style.background = "#aaa";
-    button.style.pointerEvents = "none";
-  }
-
-  window.claimGift = claimGift;
-</script>
-
 </html>
