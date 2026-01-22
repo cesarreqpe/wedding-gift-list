@@ -249,6 +249,11 @@ async function confirmGift() {
         button.style.background = "#aaa";
         button.style.pointerEvents = "none";
 
+      }
+    }
+  }
+
+
   async function adminReset() {
     const password = prompt("Admin access — enter password:");
 
@@ -267,16 +272,13 @@ async function confirmGift() {
     const snapshot = await getDocs(giftsRef);
 
     for (const docSnap of snapshot.docs) {
-       await deleteDoc(doc(db, "gifts", docSnap.id));
+      await deleteDoc(doc(db, "gifts", docSnap.id));
     }
 
-    alert("All gifts have been reset ✅");
-    location.reload();
-  }
+  alert("All gifts have been reset ✅");
+  location.reload();
+}
 
-      }
-    }
-  }
 
   window.openModal = openModal;
   window.closeModal = closeModal;
