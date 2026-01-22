@@ -11,10 +11,14 @@
 
   <style>
 :root {
-  --accent: #A3560B;
-  --accent-hover: #8A4709;
-  --accent-soft: #7A4A1E;
-}    
+  --accent: #8A5A55;        /* names / primary action */
+  --accent-hover: #734844;  /* hover */
+  --accent-soft: #9AA68E;   /* botanical sage */
+
+  --text-main: #3F3A36;     /* body text */
+  --bg-main: #FAF8F5;       /* background */
+}
+
 /* Fund modal – elegant copy layout */
 .copy-row {
   margin-bottom: 20px;
@@ -52,18 +56,17 @@
 }
 
 /* styles */    
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #fafafa;
-      color: #333;
-      margin: 0;
-      padding: 0;
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg-main);
+    color: var(--text-main);
     }
 
-     h1, h2 {
-        font-family: 'Playfair Display', serif;
-        font-weight: 500;
-      }
+  h1, h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    color: var(--text-main);
+  }
     
     .container {
       max-width: 700px;
@@ -71,10 +74,23 @@
       padding: 40px 20px;
       padding-top: 48px;
     }
-    h1 {
-      text-align: center;
-      margin-bottom: 10px;
+h1 {
+  text-align: center;
+  margin-bottom: 10px;
+  letter-spacing: 0.3px;
     }
+/* Section titles icons / accents */
+h2 {
+  color: #2F2F2F;
+  margin-bottom: 18px;
+  letter-spacing: 0.2px;
+  opacity: 0.95;
+}
+    
+h2 span,
+h2 .icon {
+  color: var(--accent-soft);
+}    
 p.subtitle {
   font-size: 15px;
   line-height: 1.7;
@@ -114,21 +130,15 @@ p.subtitle {
   font-size: 13px;
   font-weight: 500;
   color: var(--accent);
-  text-decoration: none;
-  white-space: nowrap;
 }
-
 
 .gift a:hover {
   color: var(--accent-hover);
   text-decoration: underline;
 }
 
-/* Section titles icons / accents */
-h2 {
-  color: #2F2F2F;
-  margin-bottom: 18px;
-}
+
+
 
 /* Copy actions (fund modal) */
 .copy-action {
@@ -149,19 +159,12 @@ h2 {
     }
 
 /* Optional typography polish */
-  h1 {
-    letter-spacing: 0.3px;
-  }
-
-  h2 {
-    letter-spacing: 0.2px;
-  }
-
-  p {
+ p {
     line-height: 1.6;
   }
     
   /* Primary action button (confirm gift) */
+    
 .primary-action {
   background: var(--accent);
   color: #fff;
@@ -171,12 +174,12 @@ h2 {
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
-  transition: background 0.2s ease;
 }
 
 .primary-action:hover {
   background: var(--accent-hover);
 }
+
 
 .secondary-action {
   background: transparent;
