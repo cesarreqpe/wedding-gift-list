@@ -151,6 +151,13 @@ p.subtitle {
   color: #9AA68E; /* sage */
 }
 
+.confirm-text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #6b625e;
+  max-width: 320px;
+  margin: 0 auto 24px;
+}
 
 
 /* Copy actions (fund modal) */
@@ -401,11 +408,11 @@ p.subtitle {
     text-align:center;
   ">
     <h2 style="margin-top:0;">Confirma tu regalo</h2>
-    <p>
-      Estás a punto de seleccionar este regalo.<br><br>
-      Por favor, confirma que esto es lo que quisieras regalarnos.<br><br>
-      🖤 Gracias por ser parte de nuestra celebración.
+    <p class="confirm-text">
+      Este regalo quedará reservado para nosotros.<br><br>
+      Gracias por acompañarnos en este momento tan especial.
     </p>
+
     <div style="margin-top:25px;">
       
     <button id="confirmBtn" class="primary-action" onclick="confirmGift()">
