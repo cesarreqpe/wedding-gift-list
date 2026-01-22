@@ -56,18 +56,20 @@
 }
 
 /* styles */    
-  body {
+body {
   font-family: 'Inter', sans-serif;
   color: var(--text-main);
   margin: 0;
   padding: 0;
 
-  background-image: url("background.png");
+  background-image: url("background.jpg");
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+
+  animation: subtleBackground 40s ease-in-out infinite;
 }
+
   h1, h2 {
     font-family: 'Playfair Display', serif;
     font-weight: 500;
@@ -81,6 +83,7 @@
 
   background: rgba(250, 248, 245, 0.92);
   border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.04);
 }
 
 h1 {
@@ -225,7 +228,39 @@ p.subtitle {
   color: var(--accent);
 }
 
+@media (min-width: 1024px) {
+  body {
+    background-attachment: fixed;
+    background-size: 105%;
+  }
+}
 
+@media (max-width: 768px) {
+  body {
+    background-attachment: scroll;
+    background-size: cover;
+    animation: none;
+  }
+
+  .container {
+    padding: 32px 20px;
+    border-radius: 0;
+  }
+}
+
+@keyframes subtleBackground {
+  0% {
+    background-position: center top;
+  }
+  50% {
+    background-position: center 6%;
+  }
+  100% {
+    background-position: center top;
+  }
+}
+    
+    
   </style>
 </head>
 <body>
