@@ -95,6 +95,7 @@ body {
   margin: auto;
   padding: 48px 24px;
 
+  position: relative;
   background: rgba(250, 248, 245, 0.92);
   border-radius: 16px;
   box-shadow: 0 20px 60px rgba(0,0,0,0.04);
@@ -189,25 +190,7 @@ p.subtitle {
   margin: 0 auto 24px;
 }
 
-/* Shared modal typography */
-.modal-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 22px;
-  font-weight: 500;
-  margin-bottom: 12px;
-  color: var(--text-main);
-}
-
-.modal-text {
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  line-height: 1.6;
-  color: #6b625e;
-  max-width: 320px;
-  margin: 0 auto 24px;
-  text-align: center;
-}
-    
+   
 
 /* Copy actions (fund modal) */
 .copy-action {
@@ -264,6 +247,49 @@ p.subtitle {
   color: var(--accent);
 }
 
+/* Shared modal typography */
+.modal-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  color: var(--text-main);
+}
+
+.modal-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #6b625e;
+  max-width: 320px;
+  margin: 0 auto 24px;
+  text-align: center;
+}
+    
+    
+/* Modal close (X) button */
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1;
+  cursor: pointer;
+
+  color: #8A5A55; /* same as button accent */
+  opacity: 0.7;
+
+  transition: opacity 0.2s ease;
+}
+
+.modal-close:hover {
+  opacity: 1;
+}
+    
 @media (min-width: 1024px) {
   body {
     background-attachment: fixed;
@@ -566,9 +592,13 @@ html {
       Confirmar regalo
     </button>
 
-<button class="secondary-action" onclick="closeModal()">
-  Cancelar
-</button>
+    <button class="secondary-action" onclick="closeModal()">
+       Cancelar
+    </button>  
+      
+    <button class="modal-close" onclick="closeModal()" aria-label="Cerrar">
+        ×      
+    </button>
 
     </div>
   </div>
@@ -625,10 +655,12 @@ html {
   <span class="copy-action" onclick="copyText('yape', this)">Copiar número</span>
 </div>
 
-
-
 <button class="primary-action" onclick="closeFundModal()">
   Muchas gracias por apoyarnos 🖤
+</button>
+    
+<button class="modal-close" onclick="closeFundModal()" aria-label="Cerrar">
+  ×
 </button>
 
   </div>
