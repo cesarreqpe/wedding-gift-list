@@ -228,6 +228,14 @@ p.subtitle {
 </div>
 
 <div class="gift">
+  <span>Set de Cuchillos</span>
+  <a href="javascript:void(0)" data-gift-id="knives"
+     onclick="openModal('knives', this)">
+    Seleccionar
+  </a>
+</div>      
+
+<div class="gift">
   <span>Lámpara de dormitorio 1</span>
   <a href="javascript:void(0)" data-gift-id="bedlamp1"
      onclick="openModal('bedlamp1', this)">
@@ -244,6 +252,30 @@ p.subtitle {
 </div>
 
 <div class="gift">
+  <span>Juego de Sábanas 2 plazas</span>
+  <a href="javascript:void(0)" data-gift-id="bedsheets"
+     onclick="openModal('bedsheets', this)">
+    Seleccionar
+  </a>
+</div>   
+
+<div class="gift">
+  <span>Juego de Mesa "Exploding Kittens"</span>
+  <a href="javascript:void(0)" data-gift-id="expkitt"
+     onclick="openModal('expkitt', this)">
+    Seleccionar
+  </a>
+</div>
+
+<div class="gift">
+  <span>Ajedrez</span>
+  <a href="javascript:void(0)" data-gift-id="chess"
+     onclick="openModal('chess', this)">
+    Seleccionar
+  </a>
+</div>      
+      
+<div class="gift">
   <span>Batería Portátil</span>
   <a href="javascript:void(0)" data-gift-id="powerbank"
      onclick="openModal('powerbank', this)">
@@ -259,8 +291,38 @@ p.subtitle {
   </a>
 </div>
 
-    
+<div class="gift">
+  <span>Mantas ligeras de Viaje</span>
+  <a href="javascript:void(0)" data-gift-id="travelsheets"
+     onclick="openModal('travelsheets', this)">
+    Seleccionar
+  </a>
+</div>
+      
+<div class="gift">
+  <span>Voucher para Cena</span>
+  <a href="javascript:void(0)" data-gift-id="dinnvoucher"
+     onclick="openModal('dinnvoucher', this)">
+    Seleccionar
+  </a>
+</div>      
 
+<div class="gift">
+  <span>Voucher para Cine</span>
+  <a href="javascript:void(0)" data-gift-id="cinvoucher"
+     onclick="openModal('cinvoucher', this)">
+    Seleccionar
+  </a>
+</div>     
+
+<div class="gift">
+  <span>Voucher para Spa</span>
+  <a href="javascript:void(0)" data-gift-id="spavoucher"
+     onclick="openModal('spavoucher', this)">
+    Seleccionar
+  </a>
+</div> 
+      
   
     <div class="section">
       <h2><span class="icon">✨</span> Experiencias y Fondos</h2>
@@ -330,7 +392,7 @@ p.subtitle {
     <p>
       Estás a punto de seleccionar este regalo.<br><br>
       Por favor, confirma que esto es lo que quisieras regalarnos.<br><br>
-      💛 Gracias por ser parte de nuestra celebración.
+      🖤 Gracias por ser parte de nuestra celebración.
     </p>
     <div style="margin-top:25px;">
       
@@ -400,7 +462,7 @@ p.subtitle {
 
 
 <button class="primary-action" onclick="closeFundModal()">
-  Muchas gracias por apoyarnos 💛
+  Muchas gracias por apoyarnos 🖤
 </button>
 
   </div>
@@ -474,14 +536,14 @@ async function confirmGift() {
   const snap = await getDoc(ref);
 
   if (snap.exists()) {
-    alert("This gift has already been selected 💍");
+    alert("Este regalo ya ha sido seleccionado 💍");
     closeModal();
     return;
   }
 
   await setDoc(ref, { claimed: true });
 
-  pendingButton.innerText = "Already gifted 💍";
+  pendingButton.innerText = "Regalo separado 💍";
   pendingButton.style.background = "#aaa";
   pendingButton.style.pointerEvents = "none";
 
