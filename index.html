@@ -165,17 +165,30 @@
     </div>
   </div>
 </div>
+  
+
+  <div style="text-align:center; margin-top:40px;">
+  <a href="javascript:void(0)"
+     onclick="adminReset()"
+     style="font-size:12px; color:#aaa; text-decoration:none;">
+     Admin
+  </a>
+</div>
 
 
 </body>
   <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
   import {
-    getFirestore,
-    doc,
-    setDoc,
-    getDoc
-  } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+  getFirestore,
+  doc,
+  setDoc,
+  getDoc,
+  deleteDoc,
+  getDocs,
+  collection
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
 
   const firebaseConfig = {
     apiKey: "AIzaSyAOFz8P6Qp1kD1K_UgtR6p_ld2QySU7oAw",
@@ -235,6 +248,32 @@ async function confirmGift() {
         button.innerText = "Already gifted 💍";
         button.style.background = "#aaa";
         button.style.pointerEvents = "none";
+
+  async function adminReset() {
+    const password = prompt("Admin access — enter password:");
+
+    if (password !== "michiboda2026") {
+      alert("Incorrect password");
+      return;
+    }
+
+    const confirmReset = confirm(
+      "This will reset ALL gifts.\nAre you sure?"
+    );
+
+    if (!confirmReset) return;
+
+    const giftsRef = collection(db, "gifts");
+    const snapshot = await getDocs(giftsRef);
+
+    for (const docSnap of snapshot.docs) {
+       await deleteDoc(doc(db, "gifts", docSnap.id));
+    }
+
+    alert("All gifts have been reset ✅");
+    location.reload();
+  }
+
       }
     }
   }
@@ -243,6 +282,7 @@ async function confirmGift() {
   window.closeModal = closeModal;
   window.confirmGift = confirmGift;
   window.onload = checkGiftStatus;
+  window.adminReset = adminReset;
 
 </script>
 
