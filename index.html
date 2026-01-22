@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="color-scheme" content="light">
 
   <style>
 :root {
@@ -58,7 +59,7 @@
 /* styles */    
 body {
   font-family: 'Inter', sans-serif;
-  color: var(--text-main);
+  color: var(--bg-main);
   margin: 0;
   padding: 0;
 
@@ -248,6 +249,12 @@ p.subtitle {
   }
 }
 
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+  }
+}
    
     
   </style>
