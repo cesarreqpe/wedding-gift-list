@@ -194,11 +194,37 @@ button:hover {
   background: #eaeaea;
 }
 
+.copy-row {
+  margin-bottom: 18px;
+  font-size: 16px;
+}
+
+.copy-value {
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.copy-action {
+  margin-left: 12px;
+  font-size: 13px;
+  color: #888;
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.copy-action:hover {
+  color: #000;
+  border-bottom: 1px solid #000;
+}
+
+.copy-action.copied {
+  color: #aaa;
+  border-bottom: none;
+  cursor: default;
+}
+
 ">
-
-
-  
-  
   <div style="
     background:#fff;
     padding:30px;
@@ -214,37 +240,38 @@ button:hover {
       you can use any of the following options:
     </p>
 
-<div style="margin-bottom:18px;">
-   <strong>Número de Cuenta BCP</strong><br>
-   <span id="bcp">19391538683013</span>
-   <button onclick="copyText('bcp', this)" style="margin-left:8px;">📋 Copy</button>
+<div class="copy-row">
+  <strong>Número de Cuenta BCP</strong><br>
+  <span id="bcp" class="copy-value">19391538683013</span>
+  <span class="copy-action" onclick="copyText('bcp', this)">Copiar</span>
 </div>
 
-<div style="margin-bottom:18px;">
-   <strong>CCI</strong><br>
-   <span id="cci">00219319153868301315</span>
-   <button onclick="copyText('cci', this)" style="margin-left:8px;">📋 Copy</button>
+<div class="copy-row">
+  <strong>CCI</strong><br>
+  <span id="cci" class="copy-value">00219319153868301315</span>
+  <span class="copy-action" onclick="copyText('cci', this)">Copiar</span>
 </div>
 
-<div style="margin-bottom:18px;">
+<div class="copy-row">
   <strong>Yape</strong><br>
-  <span id="yape">985368765</span><br>
-  Cesar Requejo
-  <br>
-  <button onclick="copyText('yape', this)" style="margin-top:6px;">📋 Copy Yape</button>
+  <span id="yape" class="copy-value">985 368 765</span><br>
+  <span style="font-size:14px; color:#666;">Cesar Requejo</span><br>
+  <span class="copy-action" onclick="copyText('yape', this)">Copiar número</span>
 </div>
 
 
-    <button onclick="closeFundModal()" style="
-      background:#000;
-      color:#fff;
-      border:none;
-      padding:12px 18px;
-      border-radius:6px;
-      cursor:pointer;
-    ">
-      Thank you so much for your contribution 💛
-    </button>
+
+<span onclick="closeFundModal()" style="
+  display:inline-block;
+  margin-top:25px;
+  font-size:14px;
+  color:#000;
+  cursor:pointer;
+  border-bottom:1px solid #000;
+">
+  Thank you so much for your contribution 💛
+</span>
+
   </div>
 </div>
 
@@ -374,18 +401,20 @@ async function confirmGift() {
 }
 
     
-function copyText(elementId, button) {
-  const text = document.getElementById(elementId).innerText;
+function copyText(elementId, el) {
+  const text = document.getElementById(elementId).innerText.replace(/\s/g, "");
 
   navigator.clipboard.writeText(text).then(() => {
-    const original = button.innerText;
-    button.innerText = "Copied ✓";
+    el.classList.add("copied");
+    el.innerText = "Copiado ✓";
 
     setTimeout(() => {
-      button.innerText = original;
-    }, 1500);
+      el.innerText = "Copiar";
+      el.classList.remove("copied");
+    }, 1600);
   });
 }
+
 
     
     
