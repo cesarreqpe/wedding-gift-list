@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#FAF8F5">
 
   <style>
 :root {
@@ -20,6 +21,10 @@
   --bg-main: #FAF8F5;       /* background */
 }
 
+:root {
+  color-scheme: light;
+}
+    
 /* Fund modal – elegant copy layout */
 .copy-row {
   margin-bottom: 20px;
@@ -255,6 +260,25 @@ p.subtitle {
   }
 }
    
+/* Disable Chrome Android auto darkening */
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    background-color: var(--bg-main) !important;
+  }
+
+  body {
+    background-color: var(--bg-main) !important;
+    color: var(--text-main) !important;
+  }
+
+  * {
+    background-color: transparent;
+  }
+}
     
   </style>
 </head>
