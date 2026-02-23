@@ -1695,7 +1695,9 @@ window.confirmAdminReset = confirmAdminReset;
 
 // ── Utilities ───────────────────────────────────
 window.copyText = copyText;
-window.onload = checkGiftStatus;
+document.addEventListener("DOMContentLoaded", async () => {
+  await checkGiftStatus();
+});
 
 
 
