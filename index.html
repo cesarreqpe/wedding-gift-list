@@ -1372,7 +1372,6 @@ async function readFundMessages(fundId) {
 async function checkGiftStatus() {
   const buttons = document.querySelectorAll("[data-gift-id]");
 
-  // 🔹 immediately mark all as loading
   buttons.forEach(button => {
     button.classList.add("gift-loading");
     button.textContent = "Verificando…";
@@ -1385,11 +1384,11 @@ async function checkGiftStatus() {
     try {
       const snap = await getDoc(ref);
 
-      if (snap.exists()) {
+      if (snap.exists() && snap.data().claimed === true) {
         applyReservedStyle(button);
       } else {
-        // available gift
         button.textContent = "Separar";
+        button.style.pointerEvents = "auto";
         button.classList.remove("gift-loading");
       }
 
